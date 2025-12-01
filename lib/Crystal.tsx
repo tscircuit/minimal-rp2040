@@ -1,10 +1,12 @@
 export const Crystal = () => (
-  <group name="Crystal">
+  <>
     <crystal
       name="Y1"
       footprint="hc49"
       loadCapacitance="15pF"
       frequency="12MHz"
+      pcbX={0}
+      pcbY={-15}
       connections={{ pin1: "net.XIN", pin2: "net.XOUT_CRYSTAL" }}
     />
     <capacitor
@@ -25,5 +27,5 @@ export const Crystal = () => (
       footprint="0402"
       connections={{ pin1: "net.XOUT_CRYSTAL", pin2: "net.XOUT" }}
     />
-  </group>
+  </>
 )

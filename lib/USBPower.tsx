@@ -1,5 +1,5 @@
-export const Power = () => (
-  <group name="Power">
+export const USBPower = () => (
+  <>
     <chip
       name="J1"
       footprint="kicad:Connector_USB/USB_C_Receptacle_Palconn_UTC16-G"
@@ -21,6 +21,9 @@ export const Power = () => (
         CC2: "net.CC2",
         GND: "net.GND",
       }}
+      pcbRotation={180}
+      pcbX={0}
+      pcbY={26}
     />
 
     {/* 5.1k Rd to GND on CC1/CC2 for UFP (device) mode */}
@@ -40,6 +43,8 @@ export const Power = () => (
     {/* NCP1117‑3.3 (SOT‑223) – modelled as generic 3‑pin LDO */}
     <chip
       name="U1"
+      pcbX={15}
+      pcbY={15}
       footprint="sot223"
       pinLabels={{
         pin1: "GND",
@@ -70,5 +75,18 @@ export const Power = () => (
       schOrientation="vertical"
       connections={{ pos: "U1.VOUT", neg: "net.GND" }}
     />
-  </group>
+
+    <resistor
+      name="R3"
+      resistance="27"
+      footprint="0402"
+      connections={{ pin1: "net.USB_DP_INT", pin2: "net.USB_DP" }}
+    />
+    <resistor
+      name="R4"
+      resistance="27"
+      footprint="0402"
+      connections={{ pin1: "net.USB_DM_INT", pin2: "net.USB_DM" }}
+    />
+  </>
 )

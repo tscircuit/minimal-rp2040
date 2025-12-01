@@ -1,7 +1,9 @@
 export const Flash = () => (
-  <group name="Flash">
+  <>
     <chip
       name="U2"
+      pcbX={-15}
+      pcbY={15}
       footprint="soic8"
       pinLabels={{
         pin1: "QSPI_SS",
@@ -61,5 +63,5 @@ export const Flash = () => (
       footprint="0402"
       connections={{ pin1: "net.USB_BOOT", pin2: "net.V3V3" }}
     />
-  </group>
+  </>
 )

@@ -1,5 +1,5 @@
 export const Decoupling = () => (
-  <group name="Decoupling">
+  <>
     {/* 1V1 internal rail */}
     <capacitor
       name="C6"
@@ -77,5 +77,5 @@ export const Decoupling = () => (
       capacitance="10uF"
       connections={{ pos: "net.V3V3", neg: "net.GND" }}
     />
-  </group>
+  </>
 )
