@@ -35,10 +35,6 @@ export default () => (
         GND: "net.GND",
         TESTEN: "net.GND",
 
-        // Crystal
-        XIN: "net.XIN",
-        XOUT: "net.XOUT",
-
         // QSPI Flash
         QSPI_SS: "net.QSPI_SS",
         QSPI_SCLK: "net.QSPI_SCLK",

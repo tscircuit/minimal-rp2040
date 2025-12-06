@@ -22,10 +22,10 @@ export const Rp2040MinimalBoard = () => (
         // Supplies
         VREG_IN: "net.V3V3",
         VREG_VOUT: "net.V1V1",
-        DVDD: "net.V1V1",
+        DVDD1: "net.V1V1",
         DVDD2: "net.V1V1",
 
-        IOVDD: "net.V3V3",
+        IOVDD1: "net.V3V3",
         IOVDD2: "net.V3V3",
         IOVDD3: "net.V3V3",
         IOVDD4: "net.V3V3",
@@ -35,10 +35,6 @@ export const Rp2040MinimalBoard = () => (
 
         GND1: "net.GND",
         GND2: "net.GND",
-
-        // Clocks
-        XIN: "net.XIN",
-        XOUT: "net.XOUT",
 
         // Debug / reset
         RUN: "net.RUN",
