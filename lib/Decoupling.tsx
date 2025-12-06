@@ -5,7 +5,7 @@ export const Decoupling = () => (
       name="C6"
       footprint="0402"
       capacitance="100nF"
-      connections={{ pos: "U3.DVDD", neg: "net.GND" }}
+      connections={{ pos: "U3.DVDD1", neg: "net.GND" }}
     />
     <capacitor
       name="C7"
@@ -25,7 +25,7 @@ export const Decoupling = () => (
       name="C9"
       footprint="0402"
       capacitance="100nF"
-      connections={{ pos: "U3.IOVDD", neg: "net.GND" }}
+      connections={{ pos: "U3.IOVDD1", neg: "net.GND" }}
     />
     <capacitor
       name="C11"
@@ -50,6 +50,12 @@ export const Decoupling = () => (
       footprint="0402"
       capacitance="100nF"
       connections={{ pos: "U3.IOVDD5", neg: "net.GND" }}
+    />
+    <capacitor
+      name="C18"
+      footprint="0402"
+      capacitance="100nF"
+      connections={{ pos: "U3.IOVDD6", neg: "net.GND" }}
     />
     <capacitor
       name="C15"
