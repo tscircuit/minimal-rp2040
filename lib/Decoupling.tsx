@@ -17,7 +17,7 @@ export const Decoupling = () => (
       name="C8"
       footprint="0402"
       capacitance="1uF"
-      connections={{ pos: "U3.VREG_VOUT", neg: "net.GND" }}
+      connections={{ pos: "U3.VREG_IN", neg: "net.GND" }}
     />
 
     {/* 3V3 around RP2040 */}
@@ -73,7 +73,7 @@ export const Decoupling = () => (
       name="C10"
       footprint="0402"
       capacitance="1uF"
-      connections={{ pos: "U3.VREG_IN", neg: "net.GND" }}
+      connections={{ pos: "U3.VREG_VOUT", neg: "net.GND" }}
     />
 
     {/* Extra 3V3 bulk cap near IO headers */}

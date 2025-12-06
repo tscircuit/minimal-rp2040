@@ -1,5 +1,13 @@
 export const GPIO = () => (
   <group name="GPIO">
+    {/* RUN pull-up resistor to 3V3 */}
+    <resistor
+      name="R8"
+      resistance="10k"
+      footprint="0402"
+      connections={{ pin1: "net.RUN", pin2: "net.V3V3" }}
+    />
+
     <pinheader
       name="J3"
       pinCount={36}

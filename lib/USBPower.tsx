@@ -1,25 +1,22 @@
+import { TYPE_C_16PIN_2MD_073_ } from "../imports/TYPE_C_16PIN_2MD_073_"
+
 export const USBPower = () => (
   <>
-    <chip
+    <TYPE_C_16PIN_2MD_073_
       name="J1"
-      footprint="kicad:Connector_USB/USB_C_Receptacle_Palconn_UTC16-G"
-      pinLabels={{
-        pin1: "VBUS",
-        pin2: "D-",
-        pin3: "D+",
-        pin4: "CC1",
-        pin5: "CC2",
-        pin6: "GND",
-        pin7: "SBU1",
-        pin8: "SBU2",
-      }}
       connections={{
-        VBUS: "net.VBUS",
-        "D+": "net.USB_DP",
-        "D-": "net.USB_DM",
+        VBUS1: "net.VBUS",
+        VBUS2: "net.VBUS",
+        DP1: "net.USB_DP",
+        DP2: "net.USB_DP",
+        DN1: "net.USB_DM",
+        DN2: "net.USB_DM",
         CC1: "net.CC1",
         CC2: "net.CC2",
-        GND: "net.GND",
+        GND1: "net.GND",
+        GND2: "net.GND",
+        SHELL1: "net.GND",
+        SHELL2: "net.GND",
       }}
       pcbRotation={180}
       pcbX={0}

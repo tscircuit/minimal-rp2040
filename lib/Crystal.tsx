@@ -3,7 +3,7 @@ export const Crystal = () => (
     <crystal
       name="Y1"
       footprint="hc49"
-      loadCapacitance="15pF"
+      loadCapacitance="18pF"
       frequency="12MHz"
       pcbX={0}
       pcbY={-15}
@@ -12,13 +12,13 @@ export const Crystal = () => (
     <capacitor
       name="C2"
       footprint="0402"
-      capacitance="15pF"
+      capacitance="27pF"
       connections={{ pos: "U3.XIN", neg: "net.GND" }}
     />
     <capacitor
       name="C3"
       footprint="0402"
-      capacitance="15pF"
+      capacitance="27pF"
       connections={{ pos: "net.XOUT_CRYSTAL", neg: "net.GND" }}
     />
     <resistor

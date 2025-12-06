@@ -56,12 +56,12 @@ export const Flash = () => (
       connections={{ pin1: "net.USB_BOOT", pin2: "net.QSPI_SS" }}
     />
 
-    {/* R2: DNF pull-up from USB_BOOT to 3V3 (value ~10k) */}
+    {/* R2: DNF pull-up from QSPI_SS to 3V3 (value ~10k) */}
     <resistor
       name="R2"
       resistance="10k"
       footprint="0402"
-      connections={{ pin1: "net.USB_BOOT", pin2: "net.V3V3" }}
+      connections={{ pin1: "net.QSPI_SS", pin2: "net.V3V3" }}
     />
   </>
 )

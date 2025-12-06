@@ -30,11 +30,12 @@ export const Rp2040MinimalBoard = () => (
         IOVDD3: "net.V3V3",
         IOVDD4: "net.V3V3",
         IOVDD5: "net.V3V3",
+        IOVDD6: "net.V3V3",
         USB_VDD: "net.V3V3",
         ADC_AVDD: "net.V3V3",
 
-        GND1: "net.GND",
-        GND2: "net.GND",
+        GND: "net.GND",
+        TESTEN: "net.GND",
 
         // Debug / reset
         RUN: "net.RUN",
