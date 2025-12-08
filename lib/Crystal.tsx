@@ -19,7 +19,7 @@ export const Crystal = () => (
       name="C3"
       footprint="0402"
       capacitance="27pF"
-      connections={{ pos: "net.XOUT_CRYSTAL", neg: "net.GND" }}
+      connections={{ pos: "Y1.pin2", neg: "net.GND" }}
     />
     <resistor
       name="R5"

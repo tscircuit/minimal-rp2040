@@ -75,13 +75,5 @@ export const Decoupling = () => (
       capacitance="1uF"
       connections={{ pos: "U3.VREG_VOUT", neg: "net.GND" }}
     />
-
-    {/* Extra 3V3 bulk cap near IO headers */}
-    <capacitor
-      name="C17"
-      footprint="0603"
-      capacitance="10uF"
-      connections={{ pos: "net.V3V3", neg: "net.GND" }}
-    />
   </>
 )
