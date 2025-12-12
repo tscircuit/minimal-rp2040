@@ -43,6 +43,7 @@ export const USBPower = () => (
       pcbX={15}
       pcbY={15}
       footprint="sot223"
+      obstructsWithinBounds
       pinLabels={{
         pin1: "GND",
         pin2: "VOUT",

@@ -7,25 +7,14 @@ export const Crystal = () => (
       frequency="12MHz"
       pcbX={0}
       pcbY={-15}
+      obstructsWithinBounds
       connections={{ pin1: "U3.XIN", pin2: "net.XOUT_CRYSTAL" }}
-    />
-    <capacitor
-      name="C2"
-      footprint="0402"
-      capacitance="27pF"
-      connections={{ pos: "U3.XIN", neg: "net.GND" }}
     />
     <capacitor
       name="C3"
       footprint="0402"
       capacitance="27pF"
-      connections={{ pos: "Y1.pin2", neg: "net.GND" }}
-    />
-    <resistor
-      name="R5"
-      resistance="1k"
-      footprint="0402"
-      connections={{ pin1: "net.XOUT_CRYSTAL", pin2: "U3.XOUT" }}
+      connections={{ pos: "Y1.pin2" }}
     />
   </>
 )

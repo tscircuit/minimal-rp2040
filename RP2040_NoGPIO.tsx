@@ -9,11 +9,13 @@ export default () => (
     pcbPack
     width="65mm"
     height="60mm"
-    autorouter="laser_prefab"
-    layers={1}
+    // autorouter="laser_prefab"
+    layers={4}
   >
     <RP2040
       name="U3"
+      pcbX={0}
+      pcbY={0}
       connections={{
         // Power - 3.3V IO supply
         IOVDD1: "net.V3V3",
