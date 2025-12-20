@@ -60,8 +60,8 @@ export const Rp2040Zero = ({
   pcbRotation,
   connections,
   includeCutout = true,
-  cutoutWidth = "13mm",
-  cutoutHeight = "18mm",
+  cutoutWidth = "11mm",
+  cutoutHeight = "16mm",
 }: Rp2040ZeroProps) => {
   // Mechanical basics (mm) from Waveshare drawing:
   // Board: 18.0mm wide x 23.5mm tall
