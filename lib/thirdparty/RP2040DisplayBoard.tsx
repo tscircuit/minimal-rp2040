@@ -32,7 +32,7 @@ export const RP2040DisplayBoard = () => (
       pcbRotation="90deg"
     />
 
-    <interconnect
+    {/* <interconnect
       name="I2"
       pcbX="12mm"
       pcbY="-4mm"
@@ -44,6 +44,14 @@ export const RP2040DisplayBoard = () => (
       name="I3"
       pcbX="12mm"
       pcbY="-10mm"
+      standard="0805"
+      pcbRotation="90deg"
+    /> */}
+
+    <interconnect
+      name="I4"
+      pcbX="-12mm"
+      pcbY="2mm"
       standard="0805"
       pcbRotation="90deg"
     />
@@ -63,11 +71,27 @@ export const RP2040DisplayBoard = () => (
       pcbY="-10mm"
       connections={{
         pin1: "U1.GP27",
-        pin2: "net.VCC",
+        pin3: "net.VCC",
       }}
     />
-    <ZX_QC66_7_5TP name="SW3" pcbX="-20mm" pcbY="0mm" connections={{}} />
-    <ZX_QC66_7_5TP name="SW4" pcbX="-20mm" pcbY="-10mm" connections={{}} />
+    <ZX_QC66_7_5TP
+      name="SW3"
+      pcbX="-20mm"
+      pcbY="0mm"
+      connections={{
+        pin2: "U1.GP7",
+        pin4: "net.VCC",
+      }}
+    />
+    <ZX_QC66_7_5TP
+      name="SW4"
+      pcbX="-20mm"
+      pcbY="-10mm"
+      connections={{
+        pin2: "U1.GP3",
+        pin4: "net.VCC",
+      }}
+    />
 
     <I2CDisplayHeader4
       name="J1"
