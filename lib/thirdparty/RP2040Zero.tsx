@@ -60,8 +60,8 @@ export const Rp2040Zero = ({
   pcbRotation,
   connections,
   includeCutout = true,
-  cutoutWidth = "11mm",
-  cutoutHeight = "16mm",
+  cutoutWidth = "13mm",
+  cutoutHeight = "22mm",
 }: Rp2040ZeroProps) => {
   // Mechanical basics (mm) from Waveshare drawing:
   // Board: 18.0mm wide x 23.5mm tall
@@ -117,7 +117,7 @@ export const Rp2040Zero = ({
             {/* Side pads: longer inward (X direction) */}
             {leftLabels.map((_, i) => {
               const pin = String(1 + i)
-              const y = Y_TOP - i * P
+              const y = Y_TOP - i * P + 0.3
               return (
                 <smtpad
                   key={`L${pin}`}
@@ -133,7 +133,7 @@ export const Rp2040Zero = ({
 
             {rightLabels.map((_, i) => {
               const pin = String(10 + i)
-              const y = Y_TOP - i * P
+              const y = Y_TOP - i * P + 0.3
               return (
                 <smtpad
                   key={`R${pin}`}
@@ -176,7 +176,7 @@ export const Rp2040Zero = ({
           width={cutoutWidth}
           height={cutoutHeight}
           pcbX={0}
-          pcbY={0}
+          pcbY={2}
         />
       )}
     </group>
