@@ -80,7 +80,12 @@ const PGA15x4ReceiverFootprint = () => {
   return (
     <footprint>
       {holes}{" "}
-      <silkscreenrect pcbX={0} pcbY={0} width={gridWidth} height={2.4} />
+      <silkscreenrect
+        pcbX={0}
+        pcbY={-2.54 * 1.5}
+        width={gridWidth + 2.54}
+        height={2.4}
+      />
     </footprint>
   )
 }
