@@ -12,7 +12,6 @@ export const RP2040DisplayBoard = () => (
     borderRadius="2mm"
     autorouter="laser_prefab"
     layers={1}
-    // routingDisabled
   >
     <Rp2040Zero
       name="U1"

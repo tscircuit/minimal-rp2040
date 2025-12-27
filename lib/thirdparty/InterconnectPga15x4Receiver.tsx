@@ -67,8 +67,8 @@ const PGA15x4ReceiverFootprint = () => {
           shape={isPin1 ? "circular_hole_with_rect_pad" : "circle"}
           holeDiameter={1.0}
           {...(isPin1
-            ? { rectPadHeight: 1.6, rectPadWidth: 1.6 }
-            : { outerDiameter: 1.6 })}
+            ? { rectPadHeight: 2, rectPadWidth: 2 }
+            : { outerDiameter: 2 })}
           pcbX={colIndex * PITCH - gridWidth / 2}
           pcbY={gridHeight / 2 - rowIndex * PITCH}
         />,

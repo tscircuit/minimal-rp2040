@@ -60,8 +60,6 @@ export const Rp2040Zero = ({
   pcbRotation,
   connections,
   includeCutout = true,
-  cutoutWidth = "13mm",
-  cutoutHeight = "22mm",
 }: Rp2040ZeroProps) => {
   // Mechanical basics (mm) from Waveshare drawing:
   // Board: 18.0mm wide x 23.5mm tall
@@ -69,7 +67,7 @@ export const Rp2040Zero = ({
   // Side pad centerlines: 1.38mm from each side edge => x = ±7.62mm
   // Side pad y positions: ±10.16mm down in 2.54mm steps
   const P = 2.54
-  const X_SIDE = 3 * P // 7.62
+  const X_SIDE = 3.5 * P // 7.62
   const Y_TOP = 4 * P // 10.16
 
   const leftLabels = [
@@ -151,7 +149,7 @@ export const Rp2040Zero = ({
             {bottomLabels.map((_, i) => {
               const pin = String(19 + i)
               const x = (-2 + i) * P // -5.08, -2.54, 0, +2.54, +5.08
-              const y = -Y_TOP // -10.16
+              const y = -Y_TOP - 2 // -10.16
               return (
                 <smtpad
                   key={`B${pin}`}
@@ -171,13 +169,7 @@ export const Rp2040Zero = ({
       {/* Carrier-board cutout: lets the *bottom-side* components of the RP2040-Zero
           drop into the hole so the module can sit flush (castellated-solder style). */}
       {includeCutout && (
-        <cutout
-          shape="rect"
-          width={cutoutWidth}
-          height={cutoutHeight}
-          pcbX={0}
-          pcbY={2}
-        />
+        <cutout shape="rect" width={15.5} height={24} pcbX={0} pcbY={1} />
       )}
     </group>
   )
