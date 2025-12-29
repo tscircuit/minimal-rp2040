@@ -55,6 +55,10 @@ export const I2CDisplayHeader4 = ({
               shape="circle"
             />
           ))}
+          <hole pcbX={-10} pcbY={-0.5} diameter="3.2mm" />
+          <hole pcbX={10} pcbY={-0.5} diameter="3.2mm" />
+          <hole pcbX={-10} pcbY={-0.5 - 20} diameter="3.2mm" />
+          <hole pcbX={10} pcbY={-0.5 - 20} diameter="3.2mm" />
         </footprint>
       }
     />
