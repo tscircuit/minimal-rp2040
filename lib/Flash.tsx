@@ -40,6 +40,8 @@ export const Flash = () => (
       pinCount={2}
       gender="female"
       pitch="2.54mm"
+      pcbX={-10}
+      pcbY={-10}
       schFacingDirection="up"
       pinLabels={["USB_BOOT", "GND"]}
       connections={{

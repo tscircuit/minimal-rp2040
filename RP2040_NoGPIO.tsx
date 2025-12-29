@@ -9,8 +9,10 @@ export default () => (
     pcbPack
     width="65mm"
     height="60mm"
-    // autorouter="laser_prefab"
+    pcbPackGap="3mm"
+    // autorouter="auto_cloud"
     layers={4}
+    // routingDisabled
   >
     <RP2040
       name="U3"
