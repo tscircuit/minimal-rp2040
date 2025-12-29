@@ -80,10 +80,15 @@ export const RP2040DisplayBoard = () => (
 
     <InterconnectPga15x4Receiver
       name="I1"
-      pcbX="0mm"
-      pcbY="0mm"
-      pcbRotation="0deg"
+      pcbX="22mm"
+      pcbY="14mm"
+      pcbRotation="-90deg"
     />
-    {/* <InterconnectPga15x4Receiver name="I2" pcbX="-34mm" pcbRotation="90deg" /> */}
+    <InterconnectPga15x4Receiver
+      name="I2"
+      pcbX="-22mm"
+      pcbY="14mm"
+      pcbRotation="90deg"
+    />
   </board>
 )
