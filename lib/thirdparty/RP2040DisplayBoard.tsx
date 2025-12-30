@@ -7,7 +7,7 @@ import InterconnectPga15x4Receiver from "./InterconnectPga15x4Receiver"
 
 export const RP2040DisplayBoard = () => (
   <board
-    width="60mm"
+    width="55mm"
     height="70mm"
     borderRadius="2mm"
     autorouter="laser_prefab"
@@ -80,15 +80,21 @@ export const RP2040DisplayBoard = () => (
 
     <InterconnectPga15x4Receiver
       name="I1"
+      pcbX="0mm"
+      pcbY="0mm"
+      pcbRotation="0deg"
+    />
+    {/* <InterconnectPga15x4Receiver
+      name="I1"
       pcbX="22mm"
       pcbY="14mm"
       pcbRotation="-90deg"
-    />
-    <InterconnectPga15x4Receiver
+    /> */}
+    {/* <InterconnectPga15x4Receiver
       name="I2"
       pcbX="-22mm"
       pcbY="14mm"
       pcbRotation="90deg"
-    />
+    /> */}
   </board>
 )
