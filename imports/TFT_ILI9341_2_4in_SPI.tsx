@@ -60,7 +60,7 @@ export const TFT_ILI9341_2_4in_SPI = ({
   const pinCount = 14
   const ys = Array.from(
     { length: pinCount },
-    (_, i) => ((pinCount - 1) / 2 - i) * P // pin 1 at top, pin 14 at bottom
+    (_, i) => -((pinCount - 1) / 2 - i) * P, // pin 1 at top, pin 14 at bottom
   )
 
   // Mounting hole positions (measured center-to-center)
@@ -94,10 +94,26 @@ export const TFT_ILI9341_2_4in_SPI = ({
           {/* Mounting holes (3mm diameter) */}
           {includeMountingHoles && (
             <>
-              <hole pcbX={-holeSpacingX / 2} pcbY={holeSpacingY / 2} diameter={`${holeDiameter}mm`} />
-              <hole pcbX={holeSpacingX / 2} pcbY={holeSpacingY / 2} diameter={`${holeDiameter}mm`} />
-              <hole pcbX={-holeSpacingX / 2} pcbY={-holeSpacingY / 2} diameter={`${holeDiameter}mm`} />
-              <hole pcbX={holeSpacingX / 2} pcbY={-holeSpacingY / 2} diameter={`${holeDiameter}mm`} />
+              <hole
+                pcbX={-holeSpacingX / 2}
+                pcbY={holeSpacingY / 2}
+                diameter={`${holeDiameter}mm`}
+              />
+              <hole
+                pcbX={holeSpacingX / 2}
+                pcbY={holeSpacingY / 2}
+                diameter={`${holeDiameter}mm`}
+              />
+              <hole
+                pcbX={-holeSpacingX / 2}
+                pcbY={-holeSpacingY / 2}
+                diameter={`${holeDiameter}mm`}
+              />
+              <hole
+                pcbX={holeSpacingX / 2}
+                pcbY={-holeSpacingY / 2}
+                diameter={`${holeDiameter}mm`}
+              />
             </>
           )}
 
@@ -128,11 +144,7 @@ export const TFT_ILI9341_2_4in_SPI = ({
           />
 
           {/* Pin 1 indicator - dot next to pin 1 (top pin) */}
-          <silkscreencircle
-            pcbX={pinX - 3}
-            pcbY={ys[0]}
-            radius={0.5}
-          />
+          <silkscreencircle pcbX={pinX - 3} pcbY={ys[0]} radius={0.5} />
         </footprint>
       }
       {...props}
