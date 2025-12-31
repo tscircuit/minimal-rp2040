@@ -35,12 +35,12 @@ export type TactileButton12x12Props = ChipProps<typeof pinLabels>
  *               Connect other side (3 or 4) to GND or VCC
  */
 export const TactileButton12x12 = (props: TactileButton12x12Props) => {
-  // Standard 12x12mm tactile switch pin spacing
-  // Pins are located near the outside edges of the 12mm body
-  // Horizontal spacing: ~6.5mm between pins on same side
-  // Vertical spacing: ~9.5mm between opposite sides
-  const pinSpacingX = 6.5 / 2 // half spacing between pins on same side (left-right)
-  const pinSpacingY = 9.5 / 2 // half spacing between opposite sides (top-bottom)
+  // Standard 12x12mm tactile switch pin spacing (measured)
+  // Plastic body: 12x12mm
+  // Short side pin-to-pin (outer edge to outer edge): 6mm
+  // Long side outer-bent-pin to outer-bent-pin: 13.7mm
+  const pinSpacingX = 6 / 2 // half spacing between pins on same side (left-right)
+  const pinSpacingY = 13.7 / 2 // half spacing between opposite sides (top-bottom)
 
   // Button body dimensions
   const bodyWidth = 12

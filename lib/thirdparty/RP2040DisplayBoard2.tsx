@@ -12,7 +12,8 @@ export const RP2040DisplayBoard2 = () => (
     height="90mm"
     borderRadius="2mm"
     autorouter="laser_prefab"
-    layers={2}
+    routingDisabled
+    layers={1}
   >
     {/* RP2040-Zero module - top mounted at bottom of board */}
     <Rp2040Zero
