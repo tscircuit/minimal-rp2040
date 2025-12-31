@@ -1,10 +1,11 @@
 // RP2040DisplayBoard2.tsx
-// Board with TFT 2.4" SPI Touchscreen (ILI9341) and 12x12mm tactile buttons
+// Board with TFT 2.4" SPI Touchscreen (ILI9341), D-pad (4x 6x6mm), menu button, and 2x 12x12mm buttons
 // Both display and buttons are bottom-mounted
 
 import { Rp2040Zero } from "./RP2040Zero"
 import { TFT_ILI9341_2_4in_SPI } from "../../imports/TFT_ILI9341_2_4in_SPI"
 import { TactileButton12x12 } from "../../imports/TactileButton12x12"
+import { TactileButton6x6 } from "../../imports/TactileButton6x6"
 
 export const RP2040DisplayBoard2 = () => (
   <board
@@ -38,11 +39,16 @@ export const RP2040DisplayBoard2 = () => (
         GP11: "net.LCD_MOSI", // Share MOSI with display
         GP12: "net.TOUCH_DO",
         GP13: "net.TOUCH_IRQ",
-        // Button connections
-        GP26: "net.BTN1",
-        GP27: "net.BTN2",
-        GP28: "net.BTN3",
-        GP29: "net.BTN4",
+        // D-pad button connections (left side)
+        GP26: "net.BTN_UP",
+        GP27: "net.BTN_DOWN",
+        GP28: "net.BTN_LEFT",
+        GP29: "net.BTN_RIGHT",
+        // Right side button connections
+        GP14: "net.BTN5",
+        GP15: "net.BTN6",
+        // Menu button
+        GP22: "net.BTN_MENU",
       }}
     />
 
@@ -71,59 +77,97 @@ export const RP2040DisplayBoard2 = () => (
       }}
     />
 
-    {/* 12x12mm Tactile Buttons - bottom mounted, left and right of RP2040 */}
-    <group pcbY="6mm">
-      {/* Button 1 - Left Upper */}
-      <TactileButton12x12
+    {/* Buttons - bottom mounted */}
+    <group pcbY="8mm">
+      {/* Menu button - center, below display */}
+      <TactileButton6x6
+        name="SW_MENU"
+        pcbX="0mm"
+        pcbY="-18mm"
+        layer="bottom"
+        connections={{
+          pin1: "net.BTN_MENU",
+          pin2: "net.BTN_MENU",
+          pin3: "net.GND",
+          pin4: "net.GND",
+        }}
+      />
+
+      {/* D-pad (left side) - 4x 6x6mm through-hole buttons */}
+      {/* Up */}
+      <TactileButton6x6
         name="SW1"
         pcbX="-28mm"
         pcbY="-22mm"
         layer="bottom"
         connections={{
-          pin1: "net.BTN1",
-          pin2: "net.BTN1",
+          pin1: "net.BTN_UP",
+          pin2: "net.BTN_UP",
           pin3: "net.GND",
           pin4: "net.GND",
         }}
       />
-
-      {/* Button 2 - Left Lower */}
-      <TactileButton12x12
+      {/* Down */}
+      <TactileButton6x6
         name="SW2"
         pcbX="-28mm"
         pcbY="-38mm"
         layer="bottom"
         connections={{
-          pin1: "net.BTN2",
-          pin2: "net.BTN2",
+          pin1: "net.BTN_DOWN",
+          pin2: "net.BTN_DOWN",
           pin3: "net.GND",
           pin4: "net.GND",
         }}
       />
-
-      {/* Button 3 - Right Upper */}
-      <TactileButton12x12
+      {/* Left */}
+      <TactileButton6x6
         name="SW3"
-        pcbX="28mm"
-        pcbY="-22mm"
+        pcbX="-36mm"
+        pcbY="-30mm"
         layer="bottom"
         connections={{
-          pin1: "net.BTN3",
-          pin2: "net.BTN3",
+          pin1: "net.BTN_LEFT",
+          pin2: "net.BTN_LEFT",
+          pin3: "net.GND",
+          pin4: "net.GND",
+        }}
+      />
+      {/* Right */}
+      <TactileButton6x6
+        name="SW4"
+        pcbX="-20mm"
+        pcbY="-30mm"
+        layer="bottom"
+        connections={{
+          pin1: "net.BTN_RIGHT",
+          pin2: "net.BTN_RIGHT",
           pin3: "net.GND",
           pin4: "net.GND",
         }}
       />
 
-      {/* Button 4 - Right Lower */}
+      {/* Right side - 12x12mm buttons */}
       <TactileButton12x12
-        name="SW4"
-        pcbX="28mm"
-        pcbY="-38mm"
+        name="SW5"
+        pcbX="32mm"
+        pcbY="-20mm"
         layer="bottom"
         connections={{
-          pin1: "net.BTN4",
-          pin2: "net.BTN4",
+          pin1: "net.BTN5",
+          pin2: "net.BTN5",
+          pin3: "net.GND",
+          pin4: "net.GND",
+        }}
+      />
+      <TactileButton12x12
+        name="SW6"
+        pcbX="22mm"
+        pcbY="-34mm"
+        layer="bottom"
+        connections={{
+          pin1: "net.BTN6",
+          pin2: "net.BTN6",
           pin3: "net.GND",
           pin4: "net.GND",
         }}
