@@ -15,7 +15,7 @@ export const RP2040DisplayBoard2 = () => (
     height="90mm"
     borderRadius="2mm"
     autorouter="laser_prefab"
-    routingDisabled
+    // routingDisabled
     layers={1}
   >
     {/* RP2040-Zero module - top mounted at bottom of board */}
@@ -36,11 +36,11 @@ export const RP2040DisplayBoard2 = () => (
         GP7: "net.LCD_RESET",
         GP8: "net.LCD_LED",
         // Touch SPI connections (shared clock/data lines)
-        GP9: "net.TOUCH_CS",
+        // GP9: "net.TOUCH_CS",
         GP10: "net.LCD_SCK", // Share clock with display
         GP11: "net.LCD_MOSI", // Share MOSI with display
-        GP12: "net.TOUCH_DO",
-        GP13: "net.TOUCH_IRQ",
+        // GP12: "net.TOUCH_DO",
+        // GP13: "net.TOUCH_IRQ",
         // D-pad button connections (left side)
         GP26: "net.BTN_UP",
         GP27: "net.BTN_DOWN",
@@ -50,9 +50,9 @@ export const RP2040DisplayBoard2 = () => (
         GP14: "net.BTN5",
         GP15: "net.BTN6",
         // Menu button
-        GP22: "net.BTN_MENU",
+        GP9: "net.BTN_MENU",
         // Buzzer
-        GP16: "net.BUZZER",
+        GP12: "net.BUZZER",
       }}
     />
 
