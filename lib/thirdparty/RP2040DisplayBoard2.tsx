@@ -8,6 +8,7 @@ import { TactileButton12x12 } from "../../imports/TactileButton12x12"
 import { TactileButton6x6 } from "../../imports/TactileButton6x6"
 import { TMB12A03 } from "../../imports/TMB12A03"
 import { AO3400A } from "../../imports/AO3400A"
+import InterconnectPga15x4Receiver from "./InterconnectPga15x4Receiver"
 
 export const RP2040DisplayBoard2 = () => (
   <board
@@ -15,7 +16,7 @@ export const RP2040DisplayBoard2 = () => (
     height="90mm"
     borderRadius="2mm"
     autorouter="laser_prefab"
-    // routingDisabled
+    routingDisabled
     layers={1}
   >
     {/* RP2040-Zero module - top mounted at bottom of board */}
@@ -60,7 +61,7 @@ export const RP2040DisplayBoard2 = () => (
     <TFT_ILI9341_2_4in_SPI
       name="LCD1"
       pcbX="0mm"
-      pcbY="18mm"
+      pcbY="24mm"
       pcbRotation={0}
       layer="bottom"
       connections={{
@@ -85,8 +86,8 @@ export const RP2040DisplayBoard2 = () => (
       {/* Buzzer - left of menu button */}
       <TMB12A03
         name="BZ1"
-        pcbX="-10mm"
-        pcbY="-18mm"
+        pcbX="17mm"
+        pcbY="-15mm"
         layer="bottom"
         connections={{
           _POS: "net.VCC",
@@ -96,8 +97,8 @@ export const RP2040DisplayBoard2 = () => (
       {/* MOSFET to drive buzzer */}
       <AO3400A
         name="Q1"
-        pcbX="0mm"
-        pcbY="-18mm"
+        pcbX="18mm"
+        pcbY="-24mm"
         layer="top"
         pcbRotation="90deg"
         connections={{
@@ -110,7 +111,7 @@ export const RP2040DisplayBoard2 = () => (
       {/* Menu button - center, below display */}
       <TactileButton6x6
         name="SW_MENU"
-        pcbX="8mm"
+        pcbX="6mm"
         pcbY="-18mm"
         layer="bottom"
         connections={{
@@ -201,7 +202,7 @@ export const RP2040DisplayBoard2 = () => (
         }}
       />
     </group>
-    {[
+    {/* {[
       [-34, -7, 90],
       [-28, -7, 90],
       [-22, -7, 90],
@@ -220,6 +221,12 @@ export const RP2040DisplayBoard2 = () => (
         pcbY={y}
         pcbRotation={rotation}
       />
-    ))}
+    ))} */}
+    <InterconnectPga15x4Receiver
+      name="I1"
+      pcbX={-18}
+      pcbY={-4}
+      pcbRotation="0deg"
+    />
   </board>
 )
