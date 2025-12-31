@@ -201,5 +201,25 @@ export const RP2040DisplayBoard2 = () => (
         }}
       />
     </group>
+    {[
+      [-34, -7, 90],
+      [-28, -7, 90],
+      [-22, -7, 90],
+      [17, -7, 90],
+      [17, -12, 90],
+      [17, -17, 0],
+      [-18, -30, 0],
+      [-18, -34, 0],
+      [-18, -38, 0],
+      [-14, -16, 90],
+    ].map(([x, y, rotation], i) => (
+      <interconnect
+        name={`I${i + 1}`}
+        standard="0805"
+        pcbX={x}
+        pcbY={y}
+        pcbRotation={rotation}
+      />
+    ))}
   </board>
 )
