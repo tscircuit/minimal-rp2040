@@ -6,6 +6,8 @@ import { Rp2040Zero } from "./RP2040Zero"
 import { TFT_ILI9341_2_4in_SPI } from "../../imports/TFT_ILI9341_2_4in_SPI"
 import { TactileButton12x12 } from "../../imports/TactileButton12x12"
 import { TactileButton6x6 } from "../../imports/TactileButton6x6"
+import { TMB12A03 } from "../../imports/TMB12A03"
+import { AO3400A } from "../../imports/AO3400A"
 
 export const RP2040DisplayBoard2 = () => (
   <board
@@ -49,6 +51,8 @@ export const RP2040DisplayBoard2 = () => (
         GP15: "net.BTN6",
         // Menu button
         GP22: "net.BTN_MENU",
+        // Buzzer
+        GP16: "net.BUZZER",
       }}
     />
 
@@ -77,12 +81,36 @@ export const RP2040DisplayBoard2 = () => (
       }}
     />
 
-    {/* Buttons - bottom mounted */}
     <group pcbY="8mm">
+      {/* Buzzer - left of menu button */}
+      <TMB12A03
+        name="BZ1"
+        pcbX="-10mm"
+        pcbY="-18mm"
+        layer="bottom"
+        connections={{
+          _POS: "net.VCC",
+          pin2: "net.BUZZER_SW",
+        }}
+      />
+      {/* MOSFET to drive buzzer */}
+      <AO3400A
+        name="Q1"
+        pcbX="0mm"
+        pcbY="-18mm"
+        layer="top"
+        pcbRotation="90deg"
+        connections={{
+          gate: "net.BUZZER",
+          source: "net.GND",
+          drain: "net.BUZZER_SW",
+        }}
+      />
+
       {/* Menu button - center, below display */}
       <TactileButton6x6
         name="SW_MENU"
-        pcbX="0mm"
+        pcbX="8mm"
         pcbY="-18mm"
         layer="bottom"
         connections={{
