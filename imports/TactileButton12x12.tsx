@@ -25,11 +25,12 @@ export type TactileButton12x12Props = ChipProps<typeof pinLabels>
  * - When pressed, A connects to B
  *
  * Pin layout (top view, button facing up):
- *        +-------+
- *   1 o--|       |--o 2
- *        |  [=]  |
- *   3 o--|       |--o 4
- *        +-------+
+ *       +-------+
+ *       |       |
+ *  1 o--|  [=]  |--o 3
+ *       |       |
+ *  2 o--|       |--o 4
+ *       +-------+
  *
  * Typical usage: Connect one side (1 or 2) to GPIO with pull-up/down
  *               Connect other side (3 or 4) to GND or VCC
@@ -39,8 +40,9 @@ export const TactileButton12x12 = (props: TactileButton12x12Props) => {
   // Plastic body: 12x12mm
   // Short side pin-to-pin (outer edge to outer edge): 6mm
   // Long side outer-bent-pin to outer-bent-pin: 13.7mm
-  const pinSpacingX = 6 / 2 // half spacing between pins on same side (left-right)
-  const pinSpacingY = 13.7 / 2 // half spacing between opposite sides (top-bottom)
+  // Rotated 90deg: pins on left/right sides, long dimension horizontal
+  const pinSpacingX = 13.7 / 2 // half spacing between opposite sides (left-right)
+  const pinSpacingY = 6 / 2 // half spacing between pins on same side (top-bottom)
 
   // Button body dimensions
   const bodyWidth = 12
@@ -52,7 +54,7 @@ export const TactileButton12x12 = (props: TactileButton12x12Props) => {
       manufacturerPartNumber="TS-12x12"
       footprint={
         <footprint>
-          {/* Pin 1 - Top Left */}
+          {/* Pin 1 - Left Top */}
           <platedhole
             portHints={["1"]}
             pcbX={-pinSpacingX}
@@ -62,19 +64,9 @@ export const TactileButton12x12 = (props: TactileButton12x12Props) => {
             shape="circle"
           />
 
-          {/* Pin 2 - Top Right */}
+          {/* Pin 2 - Left Bottom */}
           <platedhole
             portHints={["2"]}
-            pcbX={pinSpacingX}
-            pcbY={pinSpacingY}
-            holeDiameter="1.0mm"
-            outerDiameter="1.8mm"
-            shape="circle"
-          />
-
-          {/* Pin 3 - Bottom Left */}
-          <platedhole
-            portHints={["3"]}
             pcbX={-pinSpacingX}
             pcbY={-pinSpacingY}
             holeDiameter="1.0mm"
@@ -82,7 +74,17 @@ export const TactileButton12x12 = (props: TactileButton12x12Props) => {
             shape="circle"
           />
 
-          {/* Pin 4 - Bottom Right */}
+          {/* Pin 3 - Right Top */}
+          <platedhole
+            portHints={["3"]}
+            pcbX={pinSpacingX}
+            pcbY={pinSpacingY}
+            holeDiameter="1.0mm"
+            outerDiameter="1.8mm"
+            shape="circle"
+          />
+
+          {/* Pin 4 - Right Bottom */}
           <platedhole
             portHints={["4"]}
             pcbX={pinSpacingX}
@@ -133,13 +135,11 @@ export const TactileButton12x12 = (props: TactileButton12x12Props) => {
             ]}
           />
 
-          {/* Pin 1 indicator */}
-          <silkscreenpath
-            route={[
-              { x: -bodyWidth / 2 + 1, y: bodyHeight / 2 - 1 },
-              { x: -bodyWidth / 2 + 2, y: bodyHeight / 2 - 1 },
-              { x: -bodyWidth / 2 + 2, y: bodyHeight / 2 - 2 },
-            ]}
+          {/* Pin 1 indicator - small dot near left-top pin */}
+          <silkscreencircle
+            pcbX={-bodyWidth / 2 + 1.5}
+            pcbY={pinSpacingY}
+            radius={0.5}
           />
         </footprint>
       }

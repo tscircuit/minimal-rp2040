@@ -8,7 +8,7 @@ import { TactileButton12x12 } from "../../imports/TactileButton12x12"
 
 export const RP2040DisplayBoard2 = () => (
   <board
-    width="80mm"
+    width="90mm"
     height="90mm"
     borderRadius="2mm"
     autorouter="laser_prefab"
@@ -71,61 +71,63 @@ export const RP2040DisplayBoard2 = () => (
       }}
     />
 
-    {/* 12x12mm Tactile Buttons - bottom mounted, left and right of RP2040 */}
-    {/* Button 1 - Left Upper */}
-    <TactileButton12x12
-      name="SW1"
-      pcbX="-28mm"
-      pcbY="-22mm"
-      layer="bottom"
-      connections={{
-        pin1: "net.BTN1",
-        pin2: "net.BTN1",
-        pin3: "net.GND",
-        pin4: "net.GND",
-      }}
-    />
+    <group>
+      {/* 12x12mm Tactile Buttons - bottom mounted, left and right of RP2040 */}
+      {/* Button 1 - Left Upper */}
+      <TactileButton12x12
+        name="SW1"
+        pcbX="-28mm"
+        pcbY="-22mm"
+        layer="bottom"
+        connections={{
+          pin1: "net.BTN1",
+          pin2: "net.BTN1",
+          pin3: "net.GND",
+          pin4: "net.GND",
+        }}
+      />
 
-    {/* Button 2 - Left Lower */}
-    <TactileButton12x12
-      name="SW2"
-      pcbX="-28mm"
-      pcbY="-38mm"
-      layer="bottom"
-      connections={{
-        pin1: "net.BTN2",
-        pin2: "net.BTN2",
-        pin3: "net.GND",
-        pin4: "net.GND",
-      }}
-    />
+      {/* Button 2 - Left Lower */}
+      <TactileButton12x12
+        name="SW2"
+        pcbX="-28mm"
+        pcbY="-38mm"
+        layer="bottom"
+        connections={{
+          pin1: "net.BTN2",
+          pin2: "net.BTN2",
+          pin3: "net.GND",
+          pin4: "net.GND",
+        }}
+      />
 
-    {/* Button 3 - Right Upper */}
-    <TactileButton12x12
-      name="SW3"
-      pcbX="28mm"
-      pcbY="-22mm"
-      layer="bottom"
-      connections={{
-        pin1: "net.BTN3",
-        pin2: "net.BTN3",
-        pin3: "net.GND",
-        pin4: "net.GND",
-      }}
-    />
+      {/* Button 3 - Right Upper */}
+      <TactileButton12x12
+        name="SW3"
+        pcbX="28mm"
+        pcbY="-22mm"
+        layer="bottom"
+        connections={{
+          pin1: "net.BTN3",
+          pin2: "net.BTN3",
+          pin3: "net.GND",
+          pin4: "net.GND",
+        }}
+      />
 
-    {/* Button 4 - Right Lower */}
-    <TactileButton12x12
-      name="SW4"
-      pcbX="28mm"
-      pcbY="-38mm"
-      layer="bottom"
-      connections={{
-        pin1: "net.BTN4",
-        pin2: "net.BTN4",
-        pin3: "net.GND",
-        pin4: "net.GND",
-      }}
-    />
+      {/* Button 4 - Right Lower */}
+      <TactileButton12x12
+        name="SW4"
+        pcbX="28mm"
+        pcbY="-38mm"
+        layer="bottom"
+        connections={{
+          pin1: "net.BTN4",
+          pin2: "net.BTN4",
+          pin3: "net.GND",
+          pin4: "net.GND",
+        }}
+      />
+    </group>
   </board>
 )

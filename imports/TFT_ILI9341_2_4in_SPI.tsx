@@ -29,11 +29,13 @@ export type TFT_ILI9341_2_4in_SPIProps = ChipProps<typeof pinLabels> & {
  * TFT 2.4" SPI Touchscreen Module with ILI9341 Driver (240x320)
  * hosyond.com SKU MSP2402
  *
- * Module dimensions: approximately 71mm x 52mm
- * Header: 14-pin 2.54mm pitch through-hole
- * Mounting holes: 4x M2.5 in corners
+ * Mounting holes: 4x 3mm diameter in corners
+ *   - Long side (X): 67.4mm center-to-center
+ *   - Short side (Y): 36.8mm center-to-center
+ * Header: 14-pin 2.54mm pitch through-hole, vertical along short side
+ *   - Offset 5mm outside the mounting holes (on right edge)
  *
- * Pin layout (left to right when viewing from front):
+ * Pin layout (top to bottom when viewing from front, pins on right):
  * [1] VCC    - Power supply (3.3V-5V)
  * [2] GND    - Ground
  * [3] CS     - LCD Chip Select
@@ -53,22 +55,22 @@ export const TFT_ILI9341_2_4in_SPI = ({
   includeMountingHoles = true,
   ...props
 }: TFT_ILI9341_2_4in_SPIProps) => {
-  // 14 pins on 2.54mm pitch, centered around origin
+  // 14 pins on 2.54mm pitch, arranged vertically along the short side
   const P = 2.54
   const pinCount = 14
-  const xs = Array.from(
+  const ys = Array.from(
     { length: pinCount },
-    (_, i) => (i - (pinCount - 1) / 2) * P
+    (_, i) => ((pinCount - 1) / 2 - i) * P // pin 1 at top, pin 14 at bottom
   )
 
-  // Module dimensions (approximate for MSP2402)
-  const moduleWidth = 71 // mm
-  const moduleHeight = 52 // mm
+  // Mounting hole positions (measured center-to-center)
+  const holeSpacingX = 67.4 // long side
+  const holeSpacingY = 36.8 // short side
+  const holeDiameter = 3 // mm
 
-  // Mounting hole positions (M2.5 holes in corners)
-  // Offset from edges approximately 3mm
-  const holeOffsetX = moduleWidth / 2 - 3
-  const holeOffsetY = moduleHeight / 2 - 3
+  // Pins are offset 5mm outside the mounting holes (on right side)
+  const pinOffsetFromHole = 5
+  const pinX = holeSpacingX / 2 + pinOffsetFromHole
 
   return (
     <chip
@@ -76,62 +78,60 @@ export const TFT_ILI9341_2_4in_SPI = ({
       manufacturerPartNumber="MSP2402"
       footprint={
         <footprint>
-          {/* 14-pin header */}
-          {xs.map((x, i) => (
+          {/* 14-pin header - vertical along the short side, on right edge */}
+          {ys.map((y, i) => (
             <platedhole
               key={i}
               portHints={[String(i + 1)]}
-              pcbX={x}
-              pcbY={moduleHeight / 2 - 2} // Header at top edge
+              pcbX={pinX}
+              pcbY={y}
               holeDiameter="1.0mm"
               outerDiameter="1.8mm"
               shape="circle"
             />
           ))}
 
-          {/* Mounting holes (M2.5) */}
+          {/* Mounting holes (3mm diameter) */}
           {includeMountingHoles && (
             <>
-              <hole pcbX={-holeOffsetX} pcbY={holeOffsetY} diameter="2.7mm" />
-              <hole pcbX={holeOffsetX} pcbY={holeOffsetY} diameter="2.7mm" />
-              <hole pcbX={-holeOffsetX} pcbY={-holeOffsetY} diameter="2.7mm" />
-              <hole pcbX={holeOffsetX} pcbY={-holeOffsetY} diameter="2.7mm" />
+              <hole pcbX={-holeSpacingX / 2} pcbY={holeSpacingY / 2} diameter={`${holeDiameter}mm`} />
+              <hole pcbX={holeSpacingX / 2} pcbY={holeSpacingY / 2} diameter={`${holeDiameter}mm`} />
+              <hole pcbX={-holeSpacingX / 2} pcbY={-holeSpacingY / 2} diameter={`${holeDiameter}mm`} />
+              <hole pcbX={holeSpacingX / 2} pcbY={-holeSpacingY / 2} diameter={`${holeDiameter}mm`} />
             </>
           )}
 
-          {/* Silkscreen outline */}
+          {/* Silkscreen outline - based on mounting hole positions with margin */}
           <silkscreenpath
             route={[
-              { x: -moduleWidth / 2, y: moduleHeight / 2 },
-              { x: moduleWidth / 2, y: moduleHeight / 2 },
+              { x: -holeSpacingX / 2 - 3, y: holeSpacingY / 2 + 3 },
+              { x: pinX + 3, y: holeSpacingY / 2 + 3 },
             ]}
           />
           <silkscreenpath
             route={[
-              { x: moduleWidth / 2, y: moduleHeight / 2 },
-              { x: moduleWidth / 2, y: -moduleHeight / 2 },
+              { x: pinX + 3, y: holeSpacingY / 2 + 3 },
+              { x: pinX + 3, y: -holeSpacingY / 2 - 3 },
             ]}
           />
           <silkscreenpath
             route={[
-              { x: moduleWidth / 2, y: -moduleHeight / 2 },
-              { x: -moduleWidth / 2, y: -moduleHeight / 2 },
+              { x: pinX + 3, y: -holeSpacingY / 2 - 3 },
+              { x: -holeSpacingX / 2 - 3, y: -holeSpacingY / 2 - 3 },
             ]}
           />
           <silkscreenpath
             route={[
-              { x: -moduleWidth / 2, y: -moduleHeight / 2 },
-              { x: -moduleWidth / 2, y: moduleHeight / 2 },
+              { x: -holeSpacingX / 2 - 3, y: -holeSpacingY / 2 - 3 },
+              { x: -holeSpacingX / 2 - 3, y: holeSpacingY / 2 + 3 },
             ]}
           />
 
-          {/* Pin 1 indicator */}
-          <silkscreenpath
-            route={[
-              { x: xs[0] - 1.5, y: moduleHeight / 2 - 5 },
-              { x: xs[0], y: moduleHeight / 2 - 6.5 },
-              { x: xs[0] + 1.5, y: moduleHeight / 2 - 5 },
-            ]}
+          {/* Pin 1 indicator - dot next to pin 1 (top pin) */}
+          <silkscreencircle
+            pcbX={pinX - 3}
+            pcbY={ys[0]}
+            radius={0.5}
           />
         </footprint>
       }
