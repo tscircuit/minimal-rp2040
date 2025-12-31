@@ -24,12 +24,12 @@ export type TactileButton12x12Props = ChipProps<typeof pinLabels>
  * - Pin 3 and Pin 4 are connected (side B)
  * - When pressed, A connects to B
  *
- * Pin layout (top view, button facing up):
+ * Pin layout (top view, button facing up, CCW from pin 1):
  *       +-------+
  *       |       |
- *  1 o--|  [=]  |--o 3
+ *  1 o--|  [=]  |--o 4
  *       |       |
- *  2 o--|       |--o 4
+ *  2 o--|       |--o 3
  *       +-------+
  *
  * Typical usage: Connect one side (1 or 2) to GPIO with pull-up/down
@@ -74,21 +74,21 @@ export const TactileButton12x12 = (props: TactileButton12x12Props) => {
             shape="circle"
           />
 
-          {/* Pin 3 - Right Top */}
+          {/* Pin 3 - Right Bottom */}
           <platedhole
             portHints={["3"]}
             pcbX={pinSpacingX}
-            pcbY={pinSpacingY}
+            pcbY={-pinSpacingY}
             holeDiameter="1.0mm"
             outerDiameter="1.8mm"
             shape="circle"
           />
 
-          {/* Pin 4 - Right Bottom */}
+          {/* Pin 4 - Right Top */}
           <platedhole
             portHints={["4"]}
             pcbX={pinSpacingX}
-            pcbY={-pinSpacingY}
+            pcbY={pinSpacingY}
             holeDiameter="1.0mm"
             outerDiameter="1.8mm"
             shape="circle"
