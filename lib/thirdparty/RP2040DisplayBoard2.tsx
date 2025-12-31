@@ -71,8 +71,8 @@ export const RP2040DisplayBoard2 = () => (
       }}
     />
 
-    <group>
-      {/* 12x12mm Tactile Buttons - bottom mounted, left and right of RP2040 */}
+    {/* 12x12mm Tactile Buttons - bottom mounted, left and right of RP2040 */}
+    <group pcbY="6mm">
       {/* Button 1 - Left Upper */}
       <TactileButton12x12
         name="SW1"
