@@ -9,6 +9,7 @@ import { TactileButton6x6 } from "../../imports/TactileButton6x6"
 import { TMB12A03 } from "../../imports/TMB12A03"
 import { AO3400A } from "../../imports/AO3400A"
 import InterconnectPga15x4Receiver from "./InterconnectPga15x4Receiver"
+import { InterconnectRegion } from "./InterconnectRegion"
 
 export const RP2040DisplayBoard2 = () => (
   <board
@@ -116,9 +117,7 @@ export const RP2040DisplayBoard2 = () => (
         layer="bottom"
         connections={{
           pin1: "net.BTN_MENU",
-          pin2: "net.BTN_MENU",
           pin3: "net.GND",
-          pin4: "net.GND",
         }}
       />
 
@@ -131,9 +130,7 @@ export const RP2040DisplayBoard2 = () => (
         layer="bottom"
         connections={{
           pin1: "net.BTN_UP",
-          pin2: "net.BTN_UP",
           pin3: "net.GND",
-          pin4: "net.GND",
         }}
       />
       {/* Down */}
@@ -144,9 +141,7 @@ export const RP2040DisplayBoard2 = () => (
         layer="bottom"
         connections={{
           pin1: "net.BTN_DOWN",
-          pin2: "net.BTN_DOWN",
           pin3: "net.GND",
-          pin4: "net.GND",
         }}
       />
       {/* Left */}
@@ -157,9 +152,7 @@ export const RP2040DisplayBoard2 = () => (
         layer="bottom"
         connections={{
           pin1: "net.BTN_LEFT",
-          pin2: "net.BTN_LEFT",
           pin3: "net.GND",
-          pin4: "net.GND",
         }}
       />
       {/* Right */}
@@ -170,9 +163,7 @@ export const RP2040DisplayBoard2 = () => (
         layer="bottom"
         connections={{
           pin1: "net.BTN_RIGHT",
-          pin2: "net.BTN_RIGHT",
           pin3: "net.GND",
-          pin4: "net.GND",
         }}
       />
 
@@ -184,9 +175,7 @@ export const RP2040DisplayBoard2 = () => (
         layer="bottom"
         connections={{
           pin1: "net.BTN5",
-          pin2: "net.BTN5",
           pin3: "net.GND",
-          pin4: "net.GND",
         }}
       />
       <TactileButton12x12
@@ -196,9 +185,7 @@ export const RP2040DisplayBoard2 = () => (
         layer="bottom"
         connections={{
           pin1: "net.BTN6",
-          pin2: "net.BTN6",
           pin3: "net.GND",
-          pin4: "net.GND",
         }}
       />
     </group>
@@ -222,11 +209,40 @@ export const RP2040DisplayBoard2 = () => (
         pcbRotation={rotation}
       />
     ))} */}
-    <InterconnectPga15x4Receiver
+    <InterconnectRegion
+      namePrefix="IR1_"
+      minX={-41}
+      maxX={-15}
+      minY={-43}
+      maxY={-35}
+      spacingX={6}
+      spacingY={6}
+      standard="0805"
+      pcbRotation={0}
+    />
+    <InterconnectRegion
+      namePrefix="IR2_"
+      minX={-25}
+      maxX={25}
+      minY={6}
+      maxY={39}
+      spacingX={12}
+      spacingY={12}
+    />
+    <InterconnectRegion
+      namePrefix="IR3_"
+      minX={18}
+      maxX={36}
+      minY={-35}
+      maxY={-42}
+      spacingX={6}
+      spacingY={6}
+    />
+    {/* <InterconnectPga15x4Receiver
       name="I1"
       pcbX={-18}
       pcbY={-4}
       pcbRotation="0deg"
-    />
+    /> */}
   </board>
 )

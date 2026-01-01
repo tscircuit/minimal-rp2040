@@ -38,11 +38,11 @@ export type TactileButton12x12Props = ChipProps<typeof pinLabels>
 export const TactileButton12x12 = (props: TactileButton12x12Props) => {
   // Standard 12x12mm tactile switch pin spacing (measured)
   // Plastic body: 12x12mm
-  // Short side pin-to-pin (outer edge to outer edge): 6mm
-  // Long side outer-bent-pin to outer-bent-pin: 13.7mm
+  // Short side pin-to-pin: 5mm
+  // Long side pin-to-pin: 12.25mm
   // Rotated 90deg: pins on left/right sides, long dimension horizontal
-  const pinSpacingX = 13.7 / 2 // half spacing between opposite sides (left-right)
-  const pinSpacingY = 6 / 2 // half spacing between pins on same side (top-bottom)
+  const pinSpacingX = 12.25 / 2 // half spacing between opposite sides (left-right)
+  const pinSpacingY = 5 / 2 // half spacing between pins on same side (top-bottom)
 
   // Button body dimensions
   const bodyWidth = 12
