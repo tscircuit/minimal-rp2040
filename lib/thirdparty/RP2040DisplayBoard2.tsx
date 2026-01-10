@@ -210,27 +210,46 @@ export const RP2040DisplayBoard2 = () => (
       />
     ))} */}
     <InterconnectRegion
-      namePrefix="IR1_"
+      name="IR1"
       minX={-41}
       maxX={-15}
       minY={-43}
       maxY={-35}
       spacingX={6}
       spacingY={6}
-      standard="0805"
-      pcbRotation={0}
+      pcbRotation={90}
     />
     <InterconnectRegion
-      namePrefix="IR2_"
+      name="IR2"
       minX={-25}
+      maxX={0}
+      minY={-8}
+      maxY={25}
+      spacingX={12}
+      spacingY={6}
+    />
+    <InterconnectRegion
+      name="IR3"
+      minX={5}
       maxX={25}
       minY={6}
-      maxY={39}
-      spacingX={12}
+      maxY={20}
+      spacingX={6}
       spacingY={12}
+      pcbRotation={90}
     />
     <InterconnectRegion
-      namePrefix="IR3_"
+      name="IR4"
+      minX={5}
+      maxX={25}
+      minY={20}
+      maxY={39}
+      spacingX={6}
+      spacingY={12}
+      pcbRotation={90}
+    />
+    <InterconnectRegion
+      name="IR5"
       minX={18}
       maxX={36}
       minY={-35}
