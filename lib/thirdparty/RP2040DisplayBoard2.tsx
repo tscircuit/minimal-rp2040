@@ -16,7 +16,7 @@ export const RP2040DisplayBoard2 = () => (
     width="90mm"
     height="90mm"
     borderRadius="2mm"
-    autorouter="laser_prefab"
+    autorouter="auto_jumper"
     // routingDisabled
     layers={1}
   >
@@ -189,79 +189,5 @@ export const RP2040DisplayBoard2 = () => (
         }}
       />
     </group>
-    {/* {[
-      [-34, -7, 90],
-      [-28, -7, 90],
-      [-22, -7, 90],
-      [17, -7, 90],
-      [17, -12, 90],
-      [17, -17, 0],
-      [-18, -30, 0],
-      [-18, -34, 0],
-      [-18, -38, 0],
-      [-14, -16, 90],
-    ].map(([x, y, rotation], i) => (
-      <interconnect
-        name={`I${i + 1}`}
-        standard="0805"
-        pcbX={x}
-        pcbY={y}
-        pcbRotation={rotation}
-      />
-    ))} */}
-    <InterconnectRegion
-      name="IR1"
-      minX={-41}
-      maxX={-15}
-      minY={-43}
-      maxY={-35}
-      spacingX={6}
-      spacingY={6}
-      pcbRotation={90}
-    />
-    <InterconnectRegion
-      name="IR2"
-      minX={-25}
-      maxX={0}
-      minY={-8}
-      maxY={25}
-      spacingX={12}
-      spacingY={6}
-    />
-    <InterconnectRegion
-      name="IR3"
-      minX={5}
-      maxX={25}
-      minY={6}
-      maxY={20}
-      spacingX={6}
-      spacingY={12}
-      pcbRotation={90}
-    />
-    <InterconnectRegion
-      name="IR4"
-      minX={5}
-      maxX={25}
-      minY={20}
-      maxY={39}
-      spacingX={6}
-      spacingY={12}
-      pcbRotation={90}
-    />
-    <InterconnectRegion
-      name="IR5"
-      minX={18}
-      maxX={36}
-      minY={-35}
-      maxY={-42}
-      spacingX={6}
-      spacingY={6}
-    />
-    {/* <InterconnectPga15x4Receiver
-      name="I1"
-      pcbX={-18}
-      pcbY={-4}
-      pcbRotation="0deg"
-    /> */}
   </board>
 )
