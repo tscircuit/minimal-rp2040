@@ -1,4 +1,4 @@
 {
-  "mainEntrypoint": "lib/thirdparty/RP2040DisplayBoard.tsx",
-  "previewComponentPath": "lib/thirdparty/RP2040DisplayBoard.tsx"
+  "mainEntrypoint": "lib/thirdparty/RP2040A4988Board.tsx",
+  "previewComponentPath": "lib/thirdparty/RP2040A4988Board.tsx"
 }
