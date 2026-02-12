@@ -2,19 +2,14 @@
 // Board with 0.96" I2C OLED display, HiLetGo A4988A stepper motor driver module,
 // 3 control buttons, and 5mm-pitch wire block header for motor/power connections.
 
-import { Rp2040Zero } from "./RP2040Zero"
-import { I2CDisplayHeader4 } from "./I2CDisplayHeader4"
 import { HiLetGoA4988 } from "../../imports/HiLetGoA4988"
 import { TactileButton6x6 } from "../../imports/TactileButton6x6"
 import { WireBlockHeader6 } from "../../imports/WireBlockHeader6"
+import { I2CDisplayHeader4 } from "./I2CDisplayHeader4"
+import { Rp2040Zero } from "./RP2040Zero"
 
 export const RP2040A4988Board = () => (
-  <board
-    width="90mm"
-    height="80mm"
-    borderRadius="2mm"
-    autorouterVersion="v1"
-  >
+  <board width="95mm" height="65mm" borderRadius="2mm" autorouterVersion="v1">
     {/* === OLED Display Header (top of board) === */}
     <I2CDisplayHeader4
       name="J1"
@@ -32,8 +27,8 @@ export const RP2040A4988Board = () => (
     {/* === HiLetGo A4988A Stepper Motor Driver Module === */}
     <HiLetGoA4988
       name="U2"
-      pcbX="-16mm"
-      pcbY="4mm"
+      pcbX="-30mm"
+      pcbY="6mm"
       connections={{
         // Power
         GND1: "net.GND",
@@ -91,8 +86,8 @@ export const RP2040A4988Board = () => (
     {/* Button A: e.g. Step CW */}
     <TactileButton6x6
       name="SW1"
-      pcbX="-26mm"
-      pcbY="-14mm"
+      pcbX="-38mm"
+      pcbY="-18mm"
       connections={{
         pin1: "net.BTN_A",
         pin3: "net.GND",
@@ -102,8 +97,8 @@ export const RP2040A4988Board = () => (
     {/* Button B: e.g. Step CCW */}
     <TactileButton6x6
       name="SW2"
-      pcbX="-14mm"
-      pcbY="-14mm"
+      pcbX="-25mm"
+      pcbY="-18mm"
       connections={{
         pin1: "net.BTN_B",
         pin3: "net.GND",
@@ -113,8 +108,8 @@ export const RP2040A4988Board = () => (
     {/* Button C: e.g. Enable/Disable */}
     <TactileButton6x6
       name="SW3"
-      pcbX="26mm"
-      pcbY="-14mm"
+      pcbX="36mm"
+      pcbY="-18mm"
       connections={{
         pin1: "net.BTN_C",
         pin3: "net.GND",
@@ -125,7 +120,7 @@ export const RP2040A4988Board = () => (
     <Rp2040Zero
       name="U1"
       pcbX="0mm"
-      pcbY="-24mm"
+      pcbY="-20mm"
       pcbRotation={180}
       connections={{
         GND: "net.GND",
